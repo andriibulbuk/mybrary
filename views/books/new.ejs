@@ -1,0 +1,7 @@
+<form action="/books", method="POST" enctype="multipart/form-data">
+  <h2>New Book</h2>
+  <%- include('../partials/errorMessage') %>
+  <%- include('./_form_fields') %>
+  <a href="/books">Cancel</a>
+  <button type="submit">Add Book</button>
+</form>
