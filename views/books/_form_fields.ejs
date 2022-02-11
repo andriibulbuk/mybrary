@@ -25,7 +25,7 @@
     <input 
       type="date"
       name="publishDate"
-      value=<%= book.publishDate ? book.publishDate.toISOString().split('T')[0] : "" %>
+      value=<%= book.publishDate ? book.publishDateToShow : "" %>
     >
   </label>
 </div>
@@ -38,7 +38,7 @@
 <div>
   <label>
     Cover
-    <input type="file" name="cover">
+    <input type="file" name="cover" class="filepond">
   </label>
 </div>
 <div>
