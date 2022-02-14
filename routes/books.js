@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
     const books = await query.populate('author').exec();
     res.render('books/index', {
       searchOptions: req.query,
-      books: books
+      books: books,
     });
   } catch (error) {
     res.redirect('/');
@@ -49,7 +49,6 @@ router.post('/', async (req, res) => {
     const newBook = await book.save();
     res.redirect('books');
   } catch (error) {
-    console.log(error);
     renderNewPage(res, book, true)
   }
 });
@@ -83,7 +82,6 @@ function saveCover(book, coverEncoded) {
     book.coverImage = Buffer.from(cover.data, 'base64');
     book.coverImageType = cover.type;
   }
-
 }
 
 module.exports = router;

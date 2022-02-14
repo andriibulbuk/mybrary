@@ -24,7 +24,7 @@
     <div>
       <h3><%= book.title %></h3>
       <img src="<%= book.coverImagePath %>" alt="Alt" height="150" width="100">
-      <div>Author: <%= book.author.name %></div>
+      <div>Author: <%= book.author ? book.author.name : 'Author not found' %></div>
       <div>Publish date: <%= book.publishDateToShow %></div>
       <div>Page count: <%= book.pageCount %></div>
       <div>Description: <%= book.description %></div>
