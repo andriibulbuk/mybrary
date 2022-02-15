@@ -3,17 +3,18 @@
   <a href="/authors/<%= author.id %>/edit">Edit</a>
   <%- include('../partials/deleteForm', { url: `/authors/${author.id}` }) %>
   <% if (booksByAuthor.length > 0) { %>
+    <article>
+      <h3>Books by Author: </h3>
     <%  booksByAuthor.forEach(book => { %>
-      <article>
-        <h3>Books by Author: </h3>
-        <div>
-          <h4><%= book.title %></h4>
-          <img src="<%= book.coverImagePath %>" alt="Alt" height="150" width="100">
-          <div>Publish date: <%= book.publishDateToShow %></div>
-          <div>Page count: <%= book.pageCount %></div>
-          <div>Description: <%= book.description %></div>
-        </div>
-      </article>
+      <div>
+        <h4><%= book.title %></h4>
+        <img src="<%= book.coverImagePath %>" alt="Alt" height="150" width="100">
+        <div>Publish date: <%= book.publishDateToShow %></div>
+        <div>Page count: <%= book.pageCount %></div>
+        <div>Description: <%= book.description %></div>
+      </div>
     <% }) %>
+  </article>
+
   <% } %>
 </section>

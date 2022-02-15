@@ -1,0 +1,14 @@
+<div>
+  <h3><%= book.title %></h3>
+  <%- include('../partials/errorMessage') %>
+  <img src="<%= book.coverImagePath %>" alt="Alt" height="150" width="100">
+  <div>
+    Author: 
+    <a href="/authors/<%= book.author.id %>"><%= book.author.name %></a>
+  </div>
+  <div>Publish date: <%= book.publishDateToShow %></div>
+  <div>Page count: <%= book.pageCount %></div>
+  <div>Description: <%= book.description %></div>
+  <a href="/books/<%= book.id %>/edit">Edit</a>
+  <%- include('../partials/deleteForm', { url: `/books/${book.id}` }) %>
+</div>

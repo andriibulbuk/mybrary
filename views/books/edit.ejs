@@ -1,0 +1,7 @@
+<form action="/books/<%= book.id %>/?_method=PUT", method="POST">
+  <h2>Edit Book</h2>
+  <%- include('../partials/errorMessage') %>
+  <%- include('./_form_fields', { authors: authors }) %>
+  <a href="/books">Cancel</a>
+  <button type="submit">Edit book</button>
+</form>

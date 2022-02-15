@@ -53,19 +53,84 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id).populate('author');
+    res.render('books/book', { book: book });
+  } catch (error) {
+    res.redirect('/books');
+  }
+});
+
+router.get('/:id/edit', async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id).populate('author');
+    const authors = await Author.find();
+    res.render('books/edit', { 
+      book: book, 
+      authors: authors,
+    });
+  } catch (error) {
+    res.redirect(`/books`);
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  let book;
+  try {
+    book = await Book.findById(req.params.id);
+    updateBook(book, req.body);
+    await book.save();
+    res.redirect(`/books/${req.params.id}`);
+  } catch (error) {
+    if (!book) {
+      res.redirect('/');
+    }
+
+    renderUpdatePage(res, book, true);
+  };
+});
+
+router.delete('/:id', async (req, res) => {
+  let book;
+  try {
+    book = await Book.findById(req.params.id);
+    await book.remove();
+    res.redirect('/books');
+  } catch (error) {
+    if (!book) {
+      res.redirect('/');
+    }
+    res.render('/books/book', {
+      book: book,
+      errorMessage: 'Error deleting book',
+    });
+  }
+});
+
 async function renderNewPage(res, book, hasError = false) {
+  renderFormPage(res, 'new', book, hasError);
+}
+
+async function renderUpdatePage(res, book, hasError = false) {
+  renderFormPage(res, 'edit', book, hasError)
+}
+
+async function renderFormPage(res, form, book, hasError) {
   try {
     const authors = await Author.find();
     const params = {
       authors: authors,
       book: book
     }
-
-    if (hasError) {
-      params.errorMessage = "Error Creating Book";
-    }
   
-    res.render('books/new', params);
+    if (form === 'new' && hasError) {
+      params.errorMessage = 'Error Creating Book';
+    } else if (form === 'edit' && hasError) {
+      params.errorMessage = 'Error Updating Book';
+    }
+
+    res.render(`books/${form}`, params);
   } catch {
     res.redirect('/books');
   }
@@ -82,6 +147,19 @@ function saveCover(book, coverEncoded) {
     book.coverImage = Buffer.from(cover.data, 'base64');
     book.coverImageType = cover.type;
   }
+}
+
+function updateBook(book, reqBody) {
+  const keys = Object.keys(reqBody);
+
+  keys.forEach(key => {
+    if (key === 'cover' && reqBody[key]) {
+      saveCover(book, reqBody[key]);
+    } else if (reqBody[key]) {
+      book[key] = reqBody[key];
+    }
+    book.updatedAt = Date.now();
+  });
 }
 
 module.exports = router;
