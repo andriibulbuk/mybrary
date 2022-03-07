@@ -3,8 +3,6 @@ if (process.env.NODE_ENV !== ' production') {
 }
 
 const express = require('express');
-const http = require('http');
-const reload = require('reload');
 
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
@@ -35,6 +33,4 @@ app.use('/', indexRouter);
 app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);
 
-const server = http.createServer(app);
-server.listen(process.env.PORT || 3000, () => console.log('Server started!'));
-reload(app);
+app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
