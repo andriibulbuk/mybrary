@@ -1,0 +1,12 @@
+.footer {
+  width: 100%;
+
+  background-color: #a1a1a1;
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    
+    padding: 15px calc((100% - 960px) / 2);
+  }
+}

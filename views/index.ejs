@@ -1,11 +1,9 @@
-<h2>Recently Added</h2>
-<% books.forEach(book => { %>
-  <div>
-    <h3><%= book.title %></h3>
-    <img src="<%= book.coverImagePath %>" alt="Alt" height="150" weight="100px">
-    <div>Author: <%= book.author ? book.author.name : 'Author not found' %></div>
-    <div>Publish date: <%= book.publishDateToShow %></div>
-    <div>Page count: <%= book.pageCount %></div>
-    <div>Description: <%= book.description %></div>
-  </div>
-<% }) %>
+<h2 class="page-title">Recently Added</h2>
+<div class="cards-container">
+  <% books.forEach(book => { %>
+    <a href="/books/<%= book.id %>" class="card">
+      <img class="card__image" src="<%= book.coverImagePath %>" alt="Alt" height="200px">
+      <h3 class="card__title"><%= book.title %></h3>
+    </a>
+  <% }) %>
+</div>

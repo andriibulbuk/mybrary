@@ -3,7 +3,9 @@ if (process.env.NODE_ENV !== ' production') {
 }
 
 const express = require('express');
-const app = express();
+const http = require('http');
+const reload = require('reload');
+
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -11,6 +13,8 @@ const methodOverride = require('method-override');
 const indexRouter = require('./routes/index');
 const authorsRouter = require('./routes/authors');
 const booksRouter = require('./routes/books');
+
+const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -31,4 +35,6 @@ app.use('/', indexRouter);
 app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);
 
-app.listen(process.env.PORT || 3000);
+const server = http.createServer(app);
+server.listen(process.env.PORT || 3000, () => console.log('Server started!'));
+reload(app);
