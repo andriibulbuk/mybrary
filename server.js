@@ -2,8 +2,8 @@ if (process.env.NODE_ENV !== ' production') {
   require('dotenv').config();
 }
 
-const http = require('http');
-const reaload = require('reload');
+// const http = require('http');
+// const reaload = require('reload');
 const express = require('express');
 
 const expressLayouts = require('express-ejs-layouts');
@@ -36,7 +36,7 @@ app.use('/', indexRouter);
 app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);
 
-// app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
-const server = http.createServer(app);
-server.listen(process.env.PORT || 3000, () => console.log('Server started!'))
-reload(app);
+app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
+// const server = http.createServer(app);
+// server.listen(process.env.PORT || 3000, () => console.log('Server started!'))
+// reload(app);
