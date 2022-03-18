@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== ' production') {
 }
 
 // const http = require('http');
-// const reaload = require('reload');
+// const reload = require('reload');
 const express = require('express');
 
 const expressLayouts = require('express-ejs-layouts');
