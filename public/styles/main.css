@@ -93,6 +93,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, 184px);
   gap: 10px;
+  margin-bottom: 10px;
 }
 
 .card {
@@ -101,7 +102,8 @@ header {
   gap: 5px;
   font-size: 14px;
   align-items: center;
-  border: 1px solid #708090;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.05);
   border-radius: 5px;
   padding: 13px;
   overflow: hidden;
@@ -109,17 +111,82 @@ header {
 }
 .card:hover {
   transform: scale(1.05);
+  background-color: #f9fafb;
+}
+.card--authors {
+  align-items: flex-start;
 }
 .card__title {
   font-size: 16px;
+}
+.card__title--authors {
+  margin-bottom: 10px;
 }
 .card__image {
   object-fit: contain;
   margin-bottom: 10px;
 }
+.card__buttons {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+}
 
 .page-title {
   margin-bottom: 20px;
+}
+
+.button {
+  display: block;
+  background-color: #FFFFFF;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.5rem;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.05);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.button:hover {
+  background-color: #f9fafb;
+}
+.button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.button--delete {
+  background-color: #e05050;
+}
+.button--delete:hover {
+  background-color: #d40000;
+}
+
+.search__input {
+  margin-bottom: 5px;
+}
+
+.input {
+  background-color: #FFFFFF;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.5rem;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.05);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 200px;
+}
+.input:hover {
+  background-color: #f9fafb;
+}
+.input:focus {
+  outline: 1px solid black;
 }
 
 .footer {

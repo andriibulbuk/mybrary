@@ -1,0 +1,31 @@
+.button {
+  display: block;
+  background-color: #FFFFFF;
+  border: 1px solid rgb(209,213,219);
+  border-radius: 3px;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.5rem;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.05);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: rgb(249,250,251);
+  }
+
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  &--delete {
+    background-color: #e05050;
+
+    &:hover {
+      background-color: #d40000;
+    }
+  }
+}
