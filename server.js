@@ -2,6 +2,8 @@ if (process.env.NODE_ENV !== ' production') {
   require('dotenv').config();
 }
 
+// const http = require('http');
+// const reload = require('reload');
 const express = require('express');
 
 const expressLayouts = require('express-ejs-layouts');
@@ -24,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
 
 const mongoose = require('mongoose');
-const reload = require('reload');
+// const reload = require('reload');
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', error => console.error(error));
@@ -35,3 +37,6 @@ app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);
 
 app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
+// const server = http.createServer(app);
+// server.listen(process.env.PORT || 3000, () => console.log('Server started!'))
+// reload(app);
