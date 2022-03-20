@@ -1,24 +1,16 @@
 <%- include('../partials/pageTitle', { pageTitle: 'Search Authors' }) %>
-<form action="/authors" method="GET">
-  <div class="search">
-    <input 
-      type="text" 
-      name="name"
-      value="<%= searchOptions.name %>"
-      placeholder="Author name..."
-      class="input search__input"
-    >
-    <button type="submit" class="button">
-      Search
-    </button>
-  </div>  
+<form action="/authors" method="GET" class="form">
+  <%- include('./_form_fields', { value: searchOptions.name }) %>
+  <button type="submit" class="button">
+    Search
+  </button>
 </form>
 <br>
 <div class="cards-container">
   <% authors.forEach(author => { %>
     <div class="card card--authors">
       <h3 class="card__title card__title--authors"><%= author.name %></h3>
-      <div class="card__buttons">
+      <div class="buttons-wraper">
         <a href="/authors/<%= author.id %>" class="button">View</a>
         <a href="/authors/<%= author.id %>/edit" class="button">Edit</a>
       </div>

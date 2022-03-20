@@ -19,4 +19,9 @@
   &:focus {
     outline: 1px solid black;
   }
+
+  &--date {
+    box-sizing: border-box;
+    height: 34px;
+  }
 }

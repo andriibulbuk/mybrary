@@ -1,24 +1,20 @@
-<form action="/books", method="GET">
-  <%- include('../partials/pageTitle', { pageTitle: 'Search Books' }) %>
-  <div>
-    <label>
-      Title
-      <input type="text" name="title" value="<%= searchOptions.title %>">
-    </label>
+<%- include('../partials/pageTitle', { pageTitle: 'Search Books' }) %>
+<form action="/books", method="GET" class="form form__indent">
+  <div class="fields-group">
+    <div class="fields-group__group-column">
+      <label for="search-book-title">Title</label>
+      <input id="search-book-title" type="text" name="title" value="<%= searchOptions.title %>" class="input form-grid__title" placeholder="Book title...">
+    </div>
+    <div class="fields-group__group-column">
+      <label for="publishedAfter">Published After</label>
+      <input id="publishedAfter" type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>" class="input input--date">
+    </div>
+    <div class="fields-group__group-column">
+      <label for="publishedBefore">Published Before</label>
+      <input id="publishedBefore" type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>" class="input input--date">
+    </div>
   </div>
-  <div>
-    <label>
-      Published After
-      <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
-    </label>
-  </div>
-  <div>
-    <label>
-      Published Before
-      <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
-    </label>
-  </div>
-  <button type="submit">Search</button>
+  <button type="submit" class="button">Search</button>
 </form>
 <%- include('../partials/errorMessage') %>
 <% books.forEach(book => { %>

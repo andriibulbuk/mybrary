@@ -1,5 +1,6 @@
 .button {
   display: block;
+  box-sizing: border-box;
   background-color: #FFFFFF;
   border: 1px solid rgb(209,213,219);
   border-radius: 3px;
@@ -11,6 +12,8 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  text-align: center;
+  width: 75px;
 
   &:hover {
     background-color: rgb(249,250,251);
@@ -21,7 +24,7 @@
     outline-offset: 2px;
   }
 
-  &--delete {
+  &--danger{
     background-color: #e05050;
 
     &:hover {
