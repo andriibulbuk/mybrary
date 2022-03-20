@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  &__indent {
+    margin-bottom: 20px;
+  }
+}

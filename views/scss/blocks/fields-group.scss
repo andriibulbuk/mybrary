@@ -1,0 +1,9 @@
+.fields-group {
+  display: flex;
+  gap: 20px;
+
+  &__group-column {
+    display: flex;
+    flex-direction: column;
+  }
+}
