@@ -1,7 +1,11 @@
 <form action="/books/<%= book.id %>/?_method=PUT", method="POST">
   <h2>Edit Book</h2>
   <%- include('../partials/errorMessage') %>
-  <%- include('./_form_fields', { authors: authors }) %>
-  <a href="/books">Cancel</a>
-  <button type="submit">Edit book</button>
+  <div class="flex-column-20">
+    <%- include('./_form_fields', { authors: authors }) %>
+    <div class="buttons-wrapper">
+      <button type="submit" class="button">Edit book</button>
+      <a href="/books" class="button button--danger">Cancel</a>
+    </div>
+  </div>
 </form>

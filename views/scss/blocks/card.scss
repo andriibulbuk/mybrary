@@ -35,4 +35,14 @@
     object-fit: contain;
     margin-bottom: 10px;
   }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__last-info-field {
+    margin-bottom: 10px;
+  }
 }

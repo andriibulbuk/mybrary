@@ -1,0 +1,43 @@
+.info {
+  display: flex;
+
+  &__image-container {
+    border: 1px solid rgb(209,213,219);
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  &__image {
+    display: block;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  
+    padding: 20px;
+  }
+
+  &__field {
+    font-size: 18px;
+
+    display: grid;
+    grid-template-columns: 200px 1fr;
+
+    &--desc {
+      margin-top: 10px;
+      max-width: 500px;
+    
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  &__link {
+    &:hover {
+      color: rgb(120, 120, 120);
+    }
+  }
+}

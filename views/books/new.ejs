@@ -1,7 +1,11 @@
 <form action="/books", method="POST">
   <%- include('../partials/pageTitle', { pageTitle: 'New Book' }) %>
   <%- include('../partials/errorMessage') %>
-  <%- include('./_form_fields') %>
-  <a href="/books">Cancel</a>
-  <button type="submit">Add Book</button>
+  <div class="flex-column-20">
+    <%- include('./_form_fields') %>
+    <div class="buttons-wrapper">
+      <button type="submit" class="button">Add book</button>
+      <a href="/books" class="button button--danger">Cancel</a>
+    </div>
+  </div>
 </form>

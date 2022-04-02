@@ -1,4 +1,5 @@
 .input {
+  box-sizing: border-box;
   background-color: #FFFFFF;
   border: 1px solid rgb(209,213,219);
   border-radius: 3px;
@@ -10,7 +11,9 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 200px;
+  width: max-content;
+  min-width: 210px;
+  height: 34px;
 
   &:hover {
     background-color: rgb(249,250,251);
@@ -20,8 +23,12 @@
     outline: 1px solid black;
   }
 
-  &--date {
-    box-sizing: border-box;
-    height: 34px;
+  &--textarea {
+    font-family: inherit;
+    font-weight: normal;
+  
+    height: 245px;
+    width: 440px;
+    resize: none;
   }
 }

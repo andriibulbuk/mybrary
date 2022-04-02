@@ -1,8 +1,8 @@
 <%- include('../partials/pageTitle', { pageTitle: 'New Author' }) %>
 <form action="/authors" method="POST" class="form">
-  <%- include('./_form_fields', { value: author.name }) %>
-  <div class="buttons-wraper">
-    <button type="submit" class="button">Create</button>
+  <%- include('./_form_fields', { value: author.name, title: 'Author' }) %>
+  <div class="buttons-wrapper">
+    <button type="submit" class="button">Add author</button>
     <a href="/authors" class="button button--danger">Cancel</a>
   </div>
 </form>

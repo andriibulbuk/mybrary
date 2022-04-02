@@ -1,6 +1,6 @@
 <%- include('../partials/pageTitle', { pageTitle: 'Search Authors' }) %>
 <form action="/authors" method="GET" class="form">
-  <%- include('./_form_fields', { value: searchOptions.name }) %>
+  <%- include('./_form_fields', { value: searchOptions.name, title: "Author" }) %>
   <button type="submit" class="button">
     Search
   </button>
@@ -10,7 +10,7 @@
   <% authors.forEach(author => { %>
     <div class="card card--authors">
       <h3 class="card__title card__title--authors"><%= author.name %></h3>
-      <div class="buttons-wraper">
+      <div class="buttons-wrapper">
         <a href="/authors/<%= author.id %>" class="button">View</a>
         <a href="/authors/<%= author.id %>/edit" class="button">Edit</a>
       </div>

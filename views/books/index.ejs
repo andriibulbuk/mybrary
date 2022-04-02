@@ -1,32 +1,20 @@
 <%- include('../partials/pageTitle', { pageTitle: 'Search Books' }) %>
 <form action="/books", method="GET" class="form form__indent">
   <div class="fields-group">
-    <div class="fields-group__group-column">
+    <div class="fields-group__column">
       <label for="search-book-title">Title</label>
       <input id="search-book-title" type="text" name="title" value="<%= searchOptions.title %>" class="input form-grid__title" placeholder="Book title...">
     </div>
-    <div class="fields-group__group-column">
+    <div class="fields-group__column">
       <label for="publishedAfter">Published After</label>
-      <input id="publishedAfter" type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>" class="input input--date">
+      <input id="publishedAfter" type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>" class="input">
     </div>
-    <div class="fields-group__group-column">
+    <div class="fields-group__column">
       <label for="publishedBefore">Published Before</label>
-      <input id="publishedBefore" type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>" class="input input--date">
+      <input id="publishedBefore" type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>" class="input">
     </div>
   </div>
   <button type="submit" class="button">Search</button>
 </form>
 <%- include('../partials/errorMessage') %>
-<% books.forEach(book => { %>
-  <div>
-    <h3><%= book.title %></h3>
-    <img src="<%= book.coverImagePath %>" alt="Alt" height="150" width="100">
-    <div>Author: <%= book.author.name %></div>
-    <div>Publish date: <%= book.publishDateToShow %></div>
-    <div>Page count: <%= book.pageCount %></div>
-    <div>Description: <%= book.description %></div>
-    <a href="/books/<%= book.id %>">View</a>
-    <a href="/books/<%= book.id %>/edit">Edit</a>
-    <%- include('../partials/deleteForm', { url: `/books/${book.id}` }) %>
-  </div>
-<% }) %>
+<%- include('../partials/booksCards') %>

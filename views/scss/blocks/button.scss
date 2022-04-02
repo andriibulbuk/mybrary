@@ -13,7 +13,8 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   text-align: center;
-  width: 75px;
+  width: max-content;
+  min-width: 75px;
 
   &:hover {
     background-color: rgb(249,250,251);

@@ -1,7 +1,9 @@
 <%- include('../partials/pageTitle', { pageTitle: 'Edit Author' }) %>
-<form action="/authors/<%= author.id %>?_method=PUT" method="POST">
+<form action="/authors/<%= author.id %>?_method=PUT" method="POST" class="form">
   <%- include('../partials/errorMessage') %>
-  <%- include('./_form_fields') %>
-  <a href="/authors/<%= author.id %>">Cancel</a>
-  <button type="submit">Change</button>
+  <%- include('./_form_fields', { value: author.name, title: 'Author' }) %>
+  <div class="buttons-wrapper">
+    <button type="submit" class="button">Change name</button>
+    <a href="/authors/<%= author.id %>" class="button button--danger">Cancel</a>
+  </div>
 </form>

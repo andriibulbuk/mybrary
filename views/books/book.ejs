@@ -1,14 +1,38 @@
-<div>
-  <h3><%= book.title %></h3>
-  <%- include('../partials/errorMessage') %>
-  <img src="<%= book.coverImagePath %>" alt="Alt" height="150" width="100">
-  <div>
-    Author: 
-    <a href="/authors/<%= book.author.id %>"><%= book.author.name %></a>
+<%- include('../partials/pageTitle', { pageTitle: book.title }) %>
+<%- include('../partials/errorMessage') %>
+<div class="flex-column-20">
+  <div class="info">
+    <div class="info__image-container">
+      <img 
+        src="<%= book.coverImagePath %>"
+        alt="Alt"
+        height="350"
+        class="info__image"
+      >
+    </div>
+    <div class="info__description">
+      <div class="info__field">
+        <span>Author: </span>
+        <a href="/authors/<%= book.author.id %>" class="info__link"><%= book.author.name %></a>
+      </div>
+      <div class="info__field">
+        <span>Publish date:</span> 
+        <span><%= book.publishDateToShow %></span>
+      </div>
+      <div class="info__field">
+        <span>Page count:</span>
+        <span><%= book.pageCount %></span>
+      </div>
+      <% if ((/\S+/g).test(book.description)) { %>
+        <div class="info__field info__field--desc">
+          <div>Description: </div>
+          <%= book.description %>
+        </div>
+      <% } %>
+    </div>
   </div>
-  <div>Publish date: <%= book.publishDateToShow %></div>
-  <div>Page count: <%= book.pageCount %></div>
-  <div>Description: <%= book.description %></div>
-  <a href="/books/<%= book.id %>/edit">Edit</a>
-  <%- include('../partials/deleteForm', { url: `/books/${book.id}` }) %>
+  <div class="buttons-wrapper">
+    <a href="/books/<%= book.id %>/edit" class="button">Edit</a>
+    <%- include('../partials/deleteForm', { url: `/books/${book.id}` }) %>
+  </div>
 </div>

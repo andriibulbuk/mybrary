@@ -1,13 +1,21 @@
-<div>
+<div class="fields-group">
   <label>
-    Title
-    <input type="text" name="title" value="<%= book.title %>">
+    <div>
+      Title
+    </div>
+    <input 
+      type="text"
+      name="title"
+      value="<%= book.title %>"
+      placeholder="Book title..."
+      class="input"
+    >
   </label>
-</div>
-<div>
   <label>
-    Author
-    <select name="author">
+    <div>
+      Author
+    </div>
+    <select name="author" class="input">
       <% authors.forEach(author => { %>
         <% if (book.author && author.id === book.author.id) { %>
           <option selected label="<%= author.name %>" value="<%= author.id %>">
@@ -17,32 +25,50 @@
     <% }) %>
     </select>
   </label>
-</div>
-<div>
   <label>
-    Publish Date
+    <div>
+      Publish Date
+    </div>
     <input 
       type="date"
       name="publishDate"
-      value=<%= book.publishDate ? book.publishDateToShow : "" %>
+      value=<%= book.publishDate ? book.publishDateToShow : 0 %>
+      class="input"
     >
   </label>
 </div>
-<div>
+<div class="fields-group fields-group--cover">
   <label>
-    Page Count
-    <input type="number" name="pageCount" min="1" value="<%= book.pageCount %>">
+    <div>
+      Cover image
+    </div>
+    <input type="file" name="cover" class="filepond cover">
   </label>
-</div>
-<div>
-  <label>
-    Cover
-    <input type="file" name="cover" class="filepond">
-  </label>
-</div>
-<div>
-  <label>
-    Desctiption
-    <textarea type="text" name="description"><%= book.description %></textarea>
-  </label>
+  <div class="flex-column-20">
+    <label>
+      <div>
+        Pages
+      </div>
+      <input 
+        type="number" 
+        name="pageCount"
+        min="1"
+        value="<%= book.pageCount %>"
+        placeholder="Page count..."
+        class="input"
+      >
+    </label>
+    <label>
+      <div>
+        Description
+      </div>
+      <textarea 
+        type="text"
+        name="description"
+        class="input input--textarea"
+      >
+        <%= book.description %>
+      </textarea>
+    </label>
+  </div>
 </div>

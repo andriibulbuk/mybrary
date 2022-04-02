@@ -2,8 +2,12 @@
   display: flex;
   gap: 20px;
 
-  &__group-column {
-    display: flex;
+  &__column {
+    display: inherit;
     flex-direction: column;
+  }
+
+  &--cover {
+    gap: 20px;
   }
 }

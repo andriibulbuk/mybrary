@@ -55,9 +55,9 @@ h5 {
 
 .container {
   margin: 0 auto;
-  padding-top: 20px;
+  padding: 20px 0;
   max-width: 960px;
-  min-height: calc(100vh - 92px - 20px);
+  min-height: calc(100vh - 92px - 40px);
 }
 
 header {
@@ -95,16 +95,18 @@ header {
   display: flex;
   gap: 20px;
 }
-.fields-group__group-column {
-  display: flex;
+.fields-group__column {
+  display: inherit;
   flex-direction: column;
+}
+.fields-group--cover {
+  gap: 20px;
 }
 
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 184px);
   gap: 10px;
-  margin-bottom: 10px;
 }
 
 .card {
@@ -137,6 +139,14 @@ header {
   object-fit: contain;
   margin-bottom: 10px;
 }
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.card__last-info-field {
+  margin-bottom: 10px;
+}
 
 .page-title {
   margin-bottom: 20px;
@@ -157,7 +167,8 @@ header {
   -webkit-user-select: none;
   touch-action: manipulation;
   text-align: center;
-  width: 75px;
+  width: max-content;
+  min-width: 75px;
 }
 .button:hover {
   background-color: #f9fafb;
@@ -173,13 +184,14 @@ header {
   background-color: #d40000;
 }
 
-.buttons-wraper {
+.buttons-wrapper {
   display: flex;
   width: 100%;
   gap: 5px;
 }
 
 .input {
+  box-sizing: border-box;
   background-color: #FFFFFF;
   border: 1px solid #d1d5db;
   border-radius: 3px;
@@ -191,7 +203,9 @@ header {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 200px;
+  width: max-content;
+  min-width: 210px;
+  height: 34px;
 }
 .input:hover {
   background-color: #f9fafb;
@@ -199,9 +213,55 @@ header {
 .input:focus {
   outline: 1px solid black;
 }
-.input--date {
-  box-sizing: border-box;
-  height: 34px;
+.input--textarea {
+  font-family: inherit;
+  font-weight: normal;
+  height: 245px;
+  width: 440px;
+  resize: none;
+}
+
+.cover {
+  width: 210px;
+}
+
+.flex-column-20 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info {
+  display: flex;
+}
+.info__image-container {
+  border: 1px solid #d1d5db;
+  padding: 20px;
+  border-radius: 5px;
+}
+.info__image {
+  display: block;
+}
+.info__description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+.info__field {
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+.info__field--desc {
+  margin-top: 10px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.info__link:hover {
+  color: #787878;
 }
 
 .footer {
